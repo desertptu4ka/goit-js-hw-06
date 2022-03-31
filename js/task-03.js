@@ -29,7 +29,7 @@ const style = document.createElement('style');
 style.type = 'text/css';
 style.innerHTML = 
 '.gallery { display: flex; justify-content: space-between}' +
-' img {width: 99%; object-fit: cover; flex-basis: 33%;}';
+' img {width: 33%; object-fit: cover; flex-basis: 33%;}';
 document.querySelector('head').append(style);
 
 
