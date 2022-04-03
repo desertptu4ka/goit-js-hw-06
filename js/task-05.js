@@ -3,11 +3,7 @@ const span = document.querySelector('#name-output');
 
 const typing = function() {
     const value = event.target.value;
-    if(value) {
-        span.innerText = value;
-    } else {
-        span.innerText = 'Anonymous';
-    }
+    span.innerText = value ? value : 'Anonymous';
 }
 
 input.addEventListener('input', typing);

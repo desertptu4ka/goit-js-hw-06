@@ -12,6 +12,7 @@ const clickSubmit = () => {
 
     if(!email || !password) {
         alert("Fill in all filds");
+        return;
     }
 
     const result = {
