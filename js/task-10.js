@@ -1,3 +1,10 @@
+const input = document
+  .querySelector('#controls')
+  .querySelector(['[type=number]']);
+const buttonCreate = document.querySelector(['[data-create]']);
+const buttonDestroy = document.querySelector(['[data-destroy]']);
+const boxes = document.querySelector(['#boxes']);
+
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
@@ -22,19 +29,12 @@ function getAdjustedColor() {
   return color + randomNumber;
 }
 
-const input = document
-  .querySelector('#controls')
-  .querySelector(['[type=number]']);
-const buttonCreate = document.querySelector(['[data-create]']);
-const buttonDestroy = document.querySelector(['[data-destroy]']);
-const boxes = document.querySelector(['#boxes']);
-
 const defaultSettings = {
   size: 30,
   step: 10,
 };
 
-function createDivs() {
+function createBoxes() {
   const number = Number(input.value);
   if (!number) {
     alert('You have to write a number');
@@ -58,5 +58,5 @@ function destroyBoxes() {
   boxes.innerHTML = '';
 }
 
-buttonCreate.addEventListener('click', createDivs);
+buttonCreate.addEventListener('click', createBoxes);
 buttonDestroy.addEventListener('click', destroyBoxes);
