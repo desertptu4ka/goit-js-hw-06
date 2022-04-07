@@ -15,21 +15,22 @@ const images = [
 
 const ul = document.querySelector('.gallery');
 
-const imagesArr = [];
-images.forEach(({url, alt}) => {
-  let img = document.createElement('img');
+const imagesArr = images.map(({ url, alt }) => {
+  const li = document.createElement('li');
+  const img = document.createElement('img');
   img.setAttribute('src', url);
   img.setAttribute('alt', alt);
-  imagesArr.push(img.outerHTML);
+
+  li.append(img);
+  return li.outerHTML;
 });
-ul.insertAdjacentHTML("afterbegin", imagesArr.join(''));
+ul.insertAdjacentHTML('afterbegin', imagesArr.join(''));
 
 // ------- css -------
 const style = document.createElement('style');
 style.type = 'text/css';
-style.innerHTML = 
-'.gallery { display: flex; justify-content: space-between}' +
-' img {width: 33%; object-fit: cover; flex-basis: 33%;}';
+style.innerHTML =
+  '.gallery { display: flex; justify-content: space-between; list-style-type: none;}' +
+  ' li {width: 33%;}' +
+  ' img{width:  100%; height: 100%; object-fit: cover;}';
 document.querySelector('head').append(style);
-
-

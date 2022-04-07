@@ -11,4 +11,4 @@ function changeColor() {
   document.querySelector('body').style.backgroundColor = color;
 }
 
-button.onclick = changeColor;
+button.addEventListener('click', changeColor);

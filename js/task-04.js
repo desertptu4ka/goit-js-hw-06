@@ -5,19 +5,14 @@ const decrement = document.querySelector('[data-action=decrement]');
 const increment = document.querySelector('[data-action=increment]');
 
 const counterUpdate = () => {
-    counter.innerHTML = counterValue;
-}
+  counter.textContent = counterValue;
+};
 
-const decrementFun = function() {
-    counterValue += Number(decrement.textContent);
-    counterUpdate();
-}
-
-const incrementFun = function(){
-    counterValue += Number(increment.textContent);
-    counterUpdate();
-}
+const counterChange = function () {
+  counterValue += Number(event.target.textContent);
+  counterUpdate();
+};
 
 counterUpdate();
-decrement.addEventListener('click', decrementFun);
-increment.addEventListener('click', incrementFun);
+decrement.addEventListener('click', counterChange);
+increment.addEventListener('click', counterChange);
