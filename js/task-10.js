@@ -34,16 +34,19 @@ const defaultSettings = {
   step: 10,
 };
 
-function createBoxes() {
+function clickButtonCreateBoxes() {
   const number = Number(input.value);
   if (!number) {
     alert('You have to write a number');
     return;
   }
+  createBoxes(number);
+}
 
+function createBoxes(amount) {
   const { size, step } = defaultSettings;
   const elementsArr = [];
-  for (let i = 0; i < number; i += 1) {
+  for (let i = 0; i < amount; i += 1) {
     const div = document.createElement('div');
     div.style.height = size + step * i + 'px';
     div.style.width = div.style.height;
@@ -58,5 +61,5 @@ function destroyBoxes() {
   boxes.innerHTML = '';
 }
 
-buttonCreate.addEventListener('click', createBoxes);
+buttonCreate.addEventListener('click', clickButtonCreateBoxes);
 buttonDestroy.addEventListener('click', destroyBoxes);
